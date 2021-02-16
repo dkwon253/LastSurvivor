@@ -1,3 +1,5 @@
+package com.lastsurivor.gui;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,8 +21,8 @@ public class Hero extends Ellipse2D implements KeyListener, ActionListener {
     private Frame frame;
 
 
-    public Hero(double x, double y, double width,double height){
-        setFrame(x,y,width,height);
+    public Hero(double x, double y, double width, double height) {
+        setFrame(x, y, width, height);
     }
 
     @Override
@@ -50,10 +52,10 @@ public class Hero extends Ellipse2D implements KeyListener, ActionListener {
 
     @Override
     public void setFrame(double x, double y, double w, double h) {
-    this.x=x;
-    this.y=y;
-    this.width=w;
-    this.height=h;
+        this.x = x;
+        this.y = y;
+        this.width = w;
+        this.height = h;
     }
 
     @Override
@@ -61,7 +63,7 @@ public class Hero extends Ellipse2D implements KeyListener, ActionListener {
         return null;
     }
 
-    static class Double extends Ellipse2D.Double{
+    static class Double extends Ellipse2D.Double {
         public Double(double x, double y, double w, double h) {
             super(x, y, w, h);
         }
@@ -82,44 +84,47 @@ public class Hero extends Ellipse2D implements KeyListener, ActionListener {
         y += velY;
 
     }
-    public void up(){
-        velY= -1.5;
+
+    public void up() {
+        velY = -1.5;
         velX = 0;
     }
-    public void down(){
+
+    public void down() {
         velY = 1.5;
         velX = 0;
     }
 
-    public void left(){
+    public void left() {
         velX = -1.5;
         velY = 0;
     }
 
-    public void right(){
+    public void right() {
         velX = 1.5;
-        velY= 0;
+        velY = 0;
     }
 
-    public void upStop(){
+    public void upStop() {
         velY = 0;
         velX = 0;
     }
 
-    public void downStop(){
+    public void downStop() {
         velY = 0;
         velX = 0;
     }
 
-    public void leftStop(){
+    public void leftStop() {
         velX = 0;
         velY = 0;
     }
 
-    public void rightStop(){
+    public void rightStop() {
         velX = 0;
         velX = 0;
     }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -128,16 +133,16 @@ public class Hero extends Ellipse2D implements KeyListener, ActionListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
-        if( code == KeyEvent.VK_UP){
+        if (code == KeyEvent.VK_UP) {
             up();
         }
-        if(code == KeyEvent.VK_DOWN){
+        if (code == KeyEvent.VK_DOWN) {
             down();
         }
-        if (code == KeyEvent.VK_LEFT){
+        if (code == KeyEvent.VK_LEFT) {
             left();
         }
-        if (code == KeyEvent.VK_RIGHT){
+        if (code == KeyEvent.VK_RIGHT) {
             right();
         }
     }
@@ -145,17 +150,17 @@ public class Hero extends Ellipse2D implements KeyListener, ActionListener {
     @Override
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
-        if(code == KeyEvent.VK_UP){
+        if (code == KeyEvent.VK_UP) {
             upStop();
         }
-        if (code == KeyEvent.VK_DOWN){
+        if (code == KeyEvent.VK_DOWN) {
             downStop();
         }
-        if(code == KeyEvent.VK_LEFT){
+        if (code == KeyEvent.VK_LEFT) {
             leftStop();
         }
 
-        if(code == KeyEvent.VK_RIGHT){
+        if (code == KeyEvent.VK_RIGHT) {
             rightStop();
         }
 
