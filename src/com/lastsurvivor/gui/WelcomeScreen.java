@@ -1,4 +1,4 @@
-package com.anthony;
+package com.lastsurvivor.gui;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -44,9 +44,6 @@ public class WelcomeScreen extends JFrame {
             System.out.println(command);
             command = command == null ? "" : command;
             System.out.println(command);
-
-
-
         }
     }
 

@@ -1,4 +1,4 @@
-package com.anthony;
+package com.lastsurvivor.gui;
 
 import javax.swing.*;
 import java.awt.*;
