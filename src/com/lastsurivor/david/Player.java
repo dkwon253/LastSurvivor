@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Player implements KeyListener {
+public class Player {
 
     private int x;
     private int y;
@@ -34,40 +34,8 @@ public class Player implements KeyListener {
     }
 
     public Image playerObject() {
-        ImageIcon img = new ImageIcon("Resources/PlayerYellow.png");
+        ImageIcon img = new ImageIcon("Resources/PlayerRed.png");
         return img.getImage();
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        int code = e.getKeyCode();
-        if (code == KeyEvent.VK_UP) {
-            setVelocityY(-2);
-        } else if (code == KeyEvent.VK_DOWN) {
-            setVelocityY(2);
-        } else if (code == KeyEvent.VK_LEFT) {
-            setVelocityX(-2);
-        } else if (code == KeyEvent.VK_RIGHT) {
-            setVelocityX(2);
-        }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        int code = e.getKeyCode();
-        if (code == KeyEvent.VK_UP) {
-            setVelocityY(0);
-        } else if (code == KeyEvent.VK_DOWN) {
-            setVelocityY(0);
-        } else if (code == KeyEvent.VK_LEFT) {
-            setVelocityX(0);
-        } else if (code == KeyEvent.VK_RIGHT) {
-            setVelocityX(0);
-        }
     }
 
     public int getX() {
