@@ -1,3 +1,5 @@
+package com.anthony;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -67,7 +69,6 @@ public class Hero extends Ellipse2D implements KeyListener, ActionListener {
         }
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         frame.repaint();
@@ -82,10 +83,12 @@ public class Hero extends Ellipse2D implements KeyListener, ActionListener {
         y += velY;
 
     }
+
     public void up(){
         velY= -1.5;
         velX = 0;
     }
+
     public void down(){
         velY = 1.5;
         velX = 0;
@@ -120,6 +123,7 @@ public class Hero extends Ellipse2D implements KeyListener, ActionListener {
         velX = 0;
         velX = 0;
     }
+
     @Override
     public void keyTyped(KeyEvent e) {
 

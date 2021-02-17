@@ -1,3 +1,5 @@
+package com.anthony;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -6,8 +8,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.geom.Ellipse2D;
 
-public class second extends JPanel implements ActionListener , KeyListener {
-    Timer t = new Timer(5,this);
+public class Second extends JPanel implements ActionListener , KeyListener {
+
     double x=0;
     double y=0;
     double velX=0;
@@ -15,34 +17,36 @@ public class second extends JPanel implements ActionListener , KeyListener {
     double r=4;
     double s=3;
 
-    public second(){
+
+
+    public Second(){
+        Timer t = new Timer(5,this);
         t.start();
         addKeyListener(this);
         setFocusable(true);
-        setFocusTraversalKeysEnabled(false);
+        setFocusTraversalKeysEnabled(true);
+
+    }
+    public ActionListener getListener(){
+        return this;
     }
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        Ellipse2D circle = new Ellipse2D.Double(x,y,40,40);
         Ellipse2D hero = new Hero.Double(x,y,40,40);
-        Ellipse2D hero2 = new Hero.Double(40,40,40,40);
         g2.fill(hero);
-       // g2.fill(hero2);
 
+    }
+
+    @Override
+    public Dimension getPreferredSize(){
+        return new Dimension(500, 500);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         repaint();
-
-        /*if(x < 0 || x > 910){
-            velX = -velX;
-        }
-        if(y < 0 || y > 850){
-            velY = -velY;
-        }*/
         x += velX;
         y += velY;
 
@@ -87,7 +91,7 @@ public class second extends JPanel implements ActionListener , KeyListener {
     }
     @Override
     public void keyTyped(KeyEvent e) {
-
+            keyPressed(e);
     }
 
     @Override
