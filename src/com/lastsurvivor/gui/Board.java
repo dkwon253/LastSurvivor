@@ -20,9 +20,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     public Board() {
         exitDoor = new Finish();
         enemy = new InfectedPlayer(200, 200);
-        player = new Player("Resources/PlayerYellow.png");
-
+        player = new Player("Resources/Player.png");
         spawnRandomEnemy();
+
         Timer t = new Timer(5, this);
         t.start();
 
@@ -34,7 +34,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
     public void spawnRandomEnemy() {
         for (int i = 0; i < enemyCount; i++) {
-            enemies.add(new InfectedPlayer(rand.nextInt(800), rand.nextInt(800)));
+            enemies.add(new InfectedPlayer(rand.nextInt(700), rand.nextInt(700)));
         }
     }
 
@@ -47,20 +47,19 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        ImageIcon img = new ImageIcon("Resources/Background2.png");
+        ImageIcon img = new ImageIcon("Resources/Background.png");
         Image background = img.getImage();
         g2.drawImage(background, 0, 0, null);
+
+        exitDoor.paint(g2);
+        player.paint(g2);
+        levelUp();
 
         for (InfectedPlayer spawnEnemy : enemies) {
             spawnEnemy.paint(g2);
         }
 
-        exitDoor.paint(g2);
-        levelUp();
-        player.paint(g2);
-
         if (Collision()) {
-            //System.exit(0);
             resetPlayerLocation();
         }
     }

@@ -12,7 +12,7 @@ public class InfectedPlayer {
     private int velocityY;
 
     public InfectedPlayer(int x, int y) {
-        this.image = new ImageIcon("Resources/PlayerRed.png").getImage();
+        this.image = new ImageIcon("Resources/InfectedPlayer2.png").getImage();
         this.x = x;
         this.y = y;
     }
@@ -21,10 +21,10 @@ public class InfectedPlayer {
         y += velocityY;
         x += velocityX;
 
-        if (x < 0 || x > 960) {
+        if (x < 0 || x > 920) {
             velocityX = -velocityX;
         }
-        if (y < 0 || y > 960) {
+        if (y < 0 || y > 891) {
             velocityY = -velocityY;
         }
     }
@@ -40,6 +40,6 @@ public class InfectedPlayer {
     }
 
     public Rectangle getBounds() {
-        return new Rectangle(x, y, 96, 85);
+        return new Rectangle(x, y, 80, 109);
     }
 }

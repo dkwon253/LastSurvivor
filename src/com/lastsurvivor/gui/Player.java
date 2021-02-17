@@ -6,7 +6,7 @@ import java.awt.*;
 public class Player extends JPanel {
     private Image image;
     private int x;
-    private int y = 500;
+    private int y;
     private int velocityX = 0;
     private int velocityY = 0;
 
@@ -19,10 +19,10 @@ public class Player extends JPanel {
         y += velocityY;
         x += velocityX;
 
-        if (x < 0 || x > 960) {
+        if (x < 0 || x > 920) {
             velocityX = -velocityX;
         }
-        if (y < 0 || y > 960) {
+        if (y < 0 || y > 891) {
             velocityY = -velocityY;
         }
     }
@@ -62,6 +62,6 @@ public class Player extends JPanel {
     }
 
     public Rectangle getBounds() {
-        return new Rectangle(x, y, 98, 85);
+        return new Rectangle(x, y, 80, 109);
     }
 }
