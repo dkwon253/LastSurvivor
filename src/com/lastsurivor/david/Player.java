@@ -17,17 +17,24 @@ public class Player implements KeyListener {
         this.y = y;
     }
 
-    public void updatePosition() {
+    public void updatePlayerPosition() {
+        if (x < 0 || x > 940) {
+            velocityX = -velocityX;
+        }
+        if (y < 0 || y> 890) {
+            velocityY = -velocityY;
+        }
+
         y += velocityY;
         x += velocityX;
     }
 
-    public void draw(Graphics2D g2) {
+    public void drawPlayer(Graphics2D g2) {
         g2.drawImage(playerObject(), x, y, null);
     }
 
     public Image playerObject() {
-        ImageIcon img = new ImageIcon("Resources/PlayerBlack.png");
+        ImageIcon img = new ImageIcon("Resources/PlayerYellow.png");
         return img.getImage();
     }
 
@@ -48,17 +55,18 @@ public class Player implements KeyListener {
             setVelocityX(2);
         }
     }
+
     @Override
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_UP) {
-            velocityY = 0;
+            setVelocityY(0);
         } else if (code == KeyEvent.VK_DOWN) {
-            velocityY = 0;
+            setVelocityY(0);
         } else if (code == KeyEvent.VK_LEFT) {
-            velocityX = 0;
+            setVelocityX(0);
         } else if (code == KeyEvent.VK_RIGHT) {
-            velocityX = 0;
+            setVelocityX(0);
         }
     }
 
