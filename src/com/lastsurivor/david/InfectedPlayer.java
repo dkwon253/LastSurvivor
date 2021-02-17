@@ -19,10 +19,10 @@ public class InfectedPlayer {
         y += velocityY;
         x += velocityX;
 
-        if (x < 0 || x > 940) {
+        if (x < 0 || x > 440) {
             velocityX = -velocityX;
         }
-        if (y < 0 || y> 890) {
+        if (y < 0 || y> 440) {
             velocityY = -velocityY;
         }
     }

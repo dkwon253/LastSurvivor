@@ -38,8 +38,6 @@ public class WelcomeScreen extends JFrame {
 
     }
 
-
-
     public class Actions implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String command = e.getActionCommand();
@@ -63,11 +61,9 @@ public class WelcomeScreen extends JFrame {
         super.setVisible(b);
     }
 
-
     public static void main(String[] args) {
         JFrame window = new WelcomeScreen();
         window.setJMenuBar(new JMenuBar());
-
         window.setVisible(true);
     }
 }

@@ -13,35 +13,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
     private Timer time = new Timer(5, this);
     private Player player = new Player(0, 0);
-    private InfectedPlayer infectedPlayer = new InfectedPlayer(200, 200);
-    ArrayList<InfectedPlayer> infected = new ArrayList<>();
-    Random randomInfected = new Random();
-    private int infectedCount = 5;
+    private InfectedPlayer infectedPlayer = new InfectedPlayer(50, 50);
 
     public GamePanel() {
         setFocusable(true);
         addKeyListener(this);
-        randomInfected();
         time.start();
     }
-
-    public void addInfected(InfectedPlayer p) {
-        infected.add(p);
-    }
-
-    public void randomInfected () {
-        for (int i = 0; i < infectedCount; i++) {
-            addInfected(new InfectedPlayer(randomInfected.nextInt(700), randomInfected.nextInt(700)));
-        }
-    }
-
-    public void drawInfectedPlayer(Graphics g) {
-        Graphics2D g2 = (Graphics2D) g;
-        for (InfectedPlayer player : infected) {
-            player.drawInfectedPlayer(g2);
-        }
-    }
-
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2 = (Graphics2D) g;
@@ -49,10 +27,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
         ImageIcon img = new ImageIcon("Resources/Background2.png");
         Image background = img.getImage();
         g2.drawImage(background, 0, 0, null);
-
-        drawInfectedPlayer(g2);
         player.drawPlayer(g2);
-        infectedPlayer.drawInfectedPlayer(g2);
     }
 
     @Override
