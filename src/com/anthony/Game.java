@@ -43,6 +43,8 @@ public class Game implements ActionListener {
         button2.setSize(50,50);
         button2.setActionCommand("Switch");
         button2.addActionListener(this);
+        JPanel jPanel = new WelcomeScreen(this);
+        container.add(jPanel);
         container.add(button2);
         container.add(board);
     }

@@ -15,6 +15,7 @@ public class Infected {
         this.image = new ImageIcon("Resources/Player.png").getImage();
         this.x = 50;this.y = 50;
     }
+
     public void paint(Graphics2D g2){
         g2.drawImage(image,  x, y, null);
         move();

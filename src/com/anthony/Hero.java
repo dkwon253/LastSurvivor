@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class Hero extends JPanel  {
     private Image image;
+    private Rectangle rectangle;
     private int x;
     private int y;
     private int vX = 0;
@@ -12,12 +13,18 @@ public class Hero extends JPanel  {
 
 
     public Hero(String filename){
+        rectangle = new Rectangle(x, y, 50, 50 );
         this.image = new ImageIcon(filename).getImage();
 
     }
 
     public void paint(Graphics2D g2){
+        rectangle = new Rectangle(x, y, 50, 50 );
         g2.drawImage(image,  x, y, null);
+    }
+
+    public Rectangle getRectangle() {
+        return rectangle;
     }
 
     @Override public int getX() {
