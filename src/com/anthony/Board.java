@@ -19,6 +19,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
         Timer t = new Timer(5, this);
         t.start();
+
         //Board hold the keys and tells player and infected to move.
         addKeyListener(this);
         setFocusable(true);
@@ -30,9 +31,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         hero.paint(g2);
-
         enemy.paint(g2);
-
     }
 
     @Override
