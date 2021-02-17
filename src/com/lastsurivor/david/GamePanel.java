@@ -16,13 +16,12 @@ public class GamePanel extends JPanel implements ActionListener {
         time.start();
     }
 
-    //    public void backgroundImage() {
-//        ImageIcon img = new ImageIcon("Resources/Background.png");
-//        Image background = img.getImage();
-//    }
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2 = (Graphics2D) g;
+        ImageIcon img = new ImageIcon("Resources/Background2.png");
+        Image background = img.getImage();
+        g2.drawImage(background, 0, 0, null);
         player.draw(g2);
     }
 
@@ -31,7 +30,7 @@ public class GamePanel extends JPanel implements ActionListener {
         if (player.getX() < 0 || player.getX() > 940) {
             player.setVelocityX(-player.getVelocityX());
         }
-        if (player.getY() < 0 || player.getY() > 900) {
+        if (player.getY() < 0 || player.getY() > 890) {
             player.setVelocityY(-player.getVelocityY());
         }
         player.updatePosition();

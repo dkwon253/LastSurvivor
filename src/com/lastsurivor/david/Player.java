@@ -27,7 +27,7 @@ public class Player implements KeyListener {
     }
 
     public Image playerObject() {
-        ImageIcon img = new ImageIcon("Resources/Player.png");
+        ImageIcon img = new ImageIcon("Resources/PlayerBlack.png");
         return img.getImage();
     }
 
