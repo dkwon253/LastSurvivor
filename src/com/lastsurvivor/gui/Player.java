@@ -10,7 +10,6 @@ public class Player extends JPanel {
     private int velocityX = 0;
     private int velocityY = 0;
 
-
     public Player(String filename) {
         this.image = new ImageIcon(filename).getImage();
     }
@@ -35,20 +34,22 @@ public class Player extends JPanel {
         return velocityX;
     }
 
-    public int getX () {
+    public int getX() {
         return x;
     }
 
-    public int getY () {
+    public int getY() {
         return y;
     }
 
-    public void setX (int x) {
+    public void setX(int x) {
         this.x = x;
     }
-    public void setY (int y ) {
+
+    public void setY(int y) {
         this.y = y;
     }
+
     public void setVelocityX(int velocityX) {
         this.velocityX = velocityX;
     }
@@ -62,6 +63,6 @@ public class Player extends JPanel {
     }
 
     public Rectangle getBounds() {
-        return new Rectangle(x, y, 80, 109);
+        return new Rectangle(x, y, 50, 55);
     }
 }

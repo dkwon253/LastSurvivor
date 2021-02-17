@@ -11,8 +11,7 @@ public class Finish {
     private final int DEFAULT_Y = 915;
     private final int DEFAULT_WIDTH = 80;
     private final int DEFAULT_HEIGHT = 109;
-
-    Rectangle rectangle;
+    private final Rectangle rectangle;
 
     public Finish() {
         this.image = new ImageIcon("Resources/Exit.png").getImage();
@@ -20,11 +19,7 @@ public class Finish {
     }
 
     public void paint(Graphics2D g2) {
-
         g2.drawImage(image, 920, 900, null);
-//        g2.drawRect(DEFAULT_X, DEFAULT_Y, DEFAULT_WIDTH, DEFAULT_HEIGHT);
-//        g2.fillRect(DEFAULT_X, DEFAULT_Y, DEFAULT_WIDTH, DEFAULT_HEIGHT);
-
     }
 
     public Rectangle getRectangle() {
@@ -34,6 +29,4 @@ public class Finish {
     public Rectangle getBounds() {
         return new Rectangle(DEFAULT_X, DEFAULT_Y, DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }
-
-    // 80 W 109H
 }

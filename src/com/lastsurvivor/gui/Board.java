@@ -13,6 +13,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private final Player player;
     private final InfectedPlayer enemy;
     private final Finish exitDoor;
+    private Counter countLevel = new Counter();
     private ArrayList<InfectedPlayer> enemies = new ArrayList<>();
     private Random rand = new Random();
     private int enemyCount = 1;
@@ -29,12 +30,11 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(true);
-
     }
 
     public void spawnRandomEnemy() {
         for (int i = 0; i < enemyCount; i++) {
-            enemies.add(new InfectedPlayer(rand.nextInt(700), rand.nextInt(700)));
+            enemies.add(new InfectedPlayer(rand.nextInt(800), rand.nextInt(500)));
         }
     }
 
@@ -54,7 +54,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         exitDoor.paint(g2);
         player.paint(g2);
         levelUp();
-
+        countLevel.draw(g2);
         for (InfectedPlayer spawnEnemy : enemies) {
             spawnEnemy.paint(g2);
         }
@@ -67,6 +67,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     public void levelUp() {
         if (player.getBounds().intersects(exitDoor.getBounds())) {
             enemies.add(new InfectedPlayer(rand.nextInt(800), rand.nextInt(800)));
+            countLevel.addCounter();
             resetPlayerLocation();
         }
     }

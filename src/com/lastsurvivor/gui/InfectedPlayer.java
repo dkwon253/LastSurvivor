@@ -8,7 +8,7 @@ public class InfectedPlayer {
     public Game game;
     private int x;
     private int y;
-    private int velocityX = 1;
+    private int velocityX = 2;
     private int velocityY;
 
     public InfectedPlayer(int x, int y) {
@@ -31,15 +31,9 @@ public class InfectedPlayer {
 
     public void paint(Graphics2D g2) {
         g2.drawImage(image, x, y, null);
-        move();
-    }
-
-    public void move() {
-        if (x + velocityX > 0 && x + velocityX < 1000 - 40)
-            x = x + velocityX;
     }
 
     public Rectangle getBounds() {
-        return new Rectangle(x, y, 80, 109);
+        return new Rectangle(x, y, 50, 55);
     }
 }
