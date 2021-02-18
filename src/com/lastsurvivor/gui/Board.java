@@ -1,6 +1,7 @@
 package com.lastsurvivor.gui;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,22 +18,23 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private ArrayList<InfectedPlayer> enemies = new ArrayList<>();
     private Random rand = new Random();
     private int enemyCount = 1;
+    private Container container;
+    private Game game;
 
-    public Board() {
+    public Board(Game game) {
+        this.game = game;
         exitDoor = new Finish();
         enemy = new InfectedPlayer(200, 200);
         player = new Player("Resources/Player.png");
-        spawnRandomEnemy();
-
+        generateInfectedPlayers();
         Timer t = new Timer(5, this);
         t.start();
-
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(true);
     }
 
-    public void spawnRandomEnemy() {
+    public void generateInfectedPlayers() {
         for (int i = 0; i < enemyCount; i++) {
             enemies.add(new InfectedPlayer(rand.nextInt(800), rand.nextInt(500)));
         }
@@ -46,22 +48,23 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-
         ImageIcon img = new ImageIcon("Resources/Background.png");
         Image background = img.getImage();
         g2.drawImage(background, 0, 0, null);
+        setAndUpdateStage(g2);
+        levelUp();
+        deployEnemies(g2);
+        checkEnemyCollision();
+    }
 
+    public void deployEnemies(Graphics2D g2){
+        enemies.forEach(e->e.paint(g2));
+    }
+
+    public void setAndUpdateStage(Graphics2D g2){
         exitDoor.paint(g2);
         player.paint(g2);
-        levelUp();
         countLevel.draw(g2);
-        for (InfectedPlayer spawnEnemy : enemies) {
-            spawnEnemy.paint(g2);
-        }
-
-        if (Collision()) {
-            resetPlayerLocation();
-        }
     }
 
     public void levelUp() {
@@ -72,23 +75,20 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         }
     }
 
-    public boolean Collision() {
-        boolean collide = false;
+    public void checkEnemyCollision() {
         for (var e : enemies) {
             if (player.getBounds().intersects(e.getBounds())) {
-                collide = true;
+                resetPlayerLocation();
+                game.next();
             }
         }
-        return collide;
     }
 
-    @Override
-    public Dimension getPreferredSize() {
+    @Override public Dimension getPreferredSize() {
         return new Dimension(1000, 1000);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
+    @Override public void actionPerformed(ActionEvent e) {
         repaint();
         for (InfectedPlayer a : enemies) {
             a.updateInfectedPosition();
@@ -97,13 +97,11 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         player.requestFocus();
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
+    @Override public void keyTyped(KeyEvent e) {
         keyPressed(e);
     }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
+    @Override public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_UP) {
             player.setVelocityY(-2);
@@ -124,4 +122,6 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         player.setVelocityY(0);
         player.setVelocityX(0);
     }
+
+
 }
