@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Counter {
     private int counter = 1;
-    Font text = new Font("Comics", Font.BOLD, 25);
+    Font text = new Font("San Serif", Font.BOLD, 25);
 
     public void draw(Graphics g) {
         g.setFont(text);
