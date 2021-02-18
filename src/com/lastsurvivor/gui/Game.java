@@ -62,10 +62,12 @@ public class Game implements ActionListener {
      * method. "requestFocus" is needed to switch between screens without losing
      * control over a character.
      */
-    public void next(){
+    public void next() {
         card.next(container);
+        board.resetAll();
         endGame.requestFocus();
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Switch")) {
@@ -76,16 +78,17 @@ public class Game implements ActionListener {
             card.next(container);
             board.requestFocus();
         }
-        if(e.getActionCommand().equals("End Game")){
+        if (e.getActionCommand().equals("End Game")) {
             System.exit(0);
         }
-        if(e.getActionCommand().equals("Restart")){
+        if (e.getActionCommand().equals("Restart")) {
             card.previous(container);
             board.requestFocus();
         }
     }
-    public class WelcomeScreen extends JPanel{
-        public WelcomeScreen(ActionListener listener){
+
+    public class WelcomeScreen extends JPanel {
+        public WelcomeScreen(ActionListener listener) {
             setBorder(new EmptyBorder(10, 10, 10, 10));
             setLayout(new GridBagLayout());
             GridBagConstraints gbc = new GridBagConstraints();
@@ -102,7 +105,6 @@ public class Game implements ActionListener {
             buttons.add(start);
             buttons.add(retreat);
             add(buttons, gbc);
-
         }
     }
 }

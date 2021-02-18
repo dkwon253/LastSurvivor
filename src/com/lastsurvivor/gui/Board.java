@@ -43,6 +43,8 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     public void resetPlayerLocation() {
         player.setX(0);
         player.setY(0);
+        player.setVelocityX(0);
+        player.setVelocityY(0);
     }
 
     public void paintComponent(Graphics g) {
@@ -75,6 +77,14 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         }
     }
 
+    public void resetAll() {
+        this.enemyCount = 1;
+        countLevel.resetCounter();
+        resetPlayerLocation();
+        enemies = new ArrayList<>();
+        generateInfectedPlayers();
+    }
+
     public void checkEnemyCollision() {
         for (var e : enemies) {
             if (player.getBounds().intersects(e.getBounds())) {
@@ -84,11 +94,13 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         }
     }
 
-    @Override public Dimension getPreferredSize() {
+    @Override
+    public Dimension getPreferredSize() {
         return new Dimension(1000, 1000);
     }
 
-    @Override public void actionPerformed(ActionEvent e) {
+    @Override
+    public void actionPerformed(ActionEvent e) {
         repaint();
         for (InfectedPlayer a : enemies) {
             a.updateInfectedPosition();
@@ -97,11 +109,13 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         player.requestFocus();
     }
 
-    @Override public void keyTyped(KeyEvent e) {
+    @Override
+    public void keyTyped(KeyEvent e) {
         keyPressed(e);
     }
 
-    @Override public void keyPressed(KeyEvent e) {
+    @Override
+    public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_UP) {
             player.setVelocityY(-2);
@@ -122,6 +136,4 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         player.setVelocityY(0);
         player.setVelocityX(0);
     }
-
-
 }

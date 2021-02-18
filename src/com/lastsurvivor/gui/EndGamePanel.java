@@ -7,8 +7,7 @@ import java.awt.event.ActionListener;
 
 public class EndGamePanel extends JPanel {
 
-
-    EndGamePanel(ActionListener listener){
+    EndGamePanel(ActionListener listener) {
         setBorder(new EmptyBorder(10, 10, 10, 10));
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -33,31 +32,4 @@ public class EndGamePanel extends JPanel {
         add(buttons, gbc);
 
     }
-//    public class MenuPane extends JPanel {
-//
-//        public MenuPane() {
-//            setBorder(new EmptyBorder(10, 10, 10, 10));
-//            setLayout(new GridBagLayout());
-//
-//            GridBagConstraints gbc = new GridBagConstraints();
-//            gbc.gridwidth = GridBagConstraints.REMAINDER;
-//            gbc.anchor = GridBagConstraints.NORTH;
-//
-//            add(new JLabel("<html><h1><strong><i>Game Over</i></strong></h1><hr></html>"), gbc);
-//
-//            gbc.anchor = GridBagConstraints.CENTER;
-//            gbc.fill = GridBagConstraints.HORIZONTAL;
-//
-//            JPanel buttons = new JPanel(new GridBagLayout());
-//            buttons.add(new JButton("Start"), gbc);
-//            buttons.add(new JButton("Show scores"), gbc);
-//            buttons.add(new JButton("Help"), gbc);
-//            buttons.add(new JButton("Exit"), gbc);
-//
-//            gbc.weighty = 1;
-//            add(buttons, gbc);
-//        }
-//
-//    }
-
 }
