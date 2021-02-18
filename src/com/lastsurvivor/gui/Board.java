@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.List;
 
 public class Board extends JPanel implements ActionListener, KeyListener {
     private final Player player;
@@ -19,7 +20,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private Container container;
     private final Game game;
     private int enemyCount = 1;
-    private ArrayList<InfectedPlayer> enemies = new ArrayList<>();
+    private List<InfectedPlayer> enemies = new ArrayList<>();
 
     public Board(Game game) {
         this.game = game;
