@@ -1,5 +1,7 @@
 package com.anthony;
 
+import com.lastsurvivor.gui.Finish;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

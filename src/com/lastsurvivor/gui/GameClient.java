@@ -1,4 +1,4 @@
-package com.anthony;
+package com.lastsurvivor.gui;
 
 public class GameClient {
     public static void main(String[] args) {
