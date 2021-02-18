@@ -4,14 +4,19 @@ import java.awt.*;
 
 public class Counter {
     private int counter = 1;
-    Font text = new Font("Comics", Font.BOLD, 20);
+    Font text = new Font("Comics", Font.BOLD, 25);
 
     public void draw(Graphics g) {
         g.setFont(text);
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
         g.drawString(Integer.toString(counter), 970, 50);
     }
+
     public void addCounter() {
-        counter+=1;
+        counter += 1;
+    }
+
+    public void resetCounter() {
+        counter = 1;
     }
 }
