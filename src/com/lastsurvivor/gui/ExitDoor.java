@@ -3,29 +3,31 @@ package com.lastsurvivor.gui;
 import javax.swing.*;
 import java.awt.*;
 
-public class Finish {
-    private int x;
-    private int y;
-    private Image image;
+/**
+ * Finish is the class that paints the exit door.
+ */
+public class ExitDoor {
+
     private final int DEFAULT_X = 915;
     private final int DEFAULT_Y = 915;
     private final int DEFAULT_WIDTH = 80;
     private final int DEFAULT_HEIGHT = 109;
-    private final Rectangle rectangle;
+    private final int DOOR_PAINT_X = 920;
+    private final int DOOR_PAINT_Y = 900;
+    private Image image;
 
-    public Finish() {
+    public ExitDoor() {
         this.image = new ImageIcon("Resources/Exit.png").getImage();
-        rectangle = new Rectangle(DEFAULT_X, DEFAULT_Y, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+
     }
 
     public void paint(Graphics2D g2) {
-        g2.drawImage(image, 920, 900, null);
+        g2.drawImage(image, DOOR_PAINT_X, DOOR_PAINT_Y, null);
     }
 
-    public Rectangle getRectangle() {
-        return rectangle;
-    }
-
+    /**
+     * getBounds is being used for collision detection.
+     */
     public Rectangle getBounds() {
         return new Rectangle(DEFAULT_X, DEFAULT_Y, DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }

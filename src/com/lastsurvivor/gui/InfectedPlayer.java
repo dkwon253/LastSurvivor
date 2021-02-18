@@ -2,7 +2,10 @@ package com.lastsurvivor.gui;
 
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * The InfectedPlayer Class creates new instances of Infected Player. This class give them an Image, coordinates on the
+ * frame, and a velocity
+ */
 public class InfectedPlayer {
     private Image image;
     private int x;

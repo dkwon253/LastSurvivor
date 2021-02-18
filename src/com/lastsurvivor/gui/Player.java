@@ -3,6 +3,11 @@ package com.lastsurvivor.gui;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ *  The Player class extends JPanel
+ *  It Creates a new instances of Player. It gives the player an image, x&y coordinates and receives input from the
+ *  Board keyListener to move the Player.
+ */
 public class Player extends JPanel {
     private Image image;
     private int x;
@@ -10,8 +15,8 @@ public class Player extends JPanel {
     private int velocityX = 0;
     private int velocityY = 0;
 
-    public Player(String filename) {
-        this.image = new ImageIcon(filename).getImage();
+    public Player() {
+        this.image = new ImageIcon("Resources/Player.png").getImage();
     }
 
     public void updatePlayerPosition() {
@@ -30,10 +35,9 @@ public class Player extends JPanel {
         g2.drawImage(image, x, y, null);
     }
 
-    public int getVelocityX() {
-        return velocityX;
-    }
-
+    /**
+     * Accessor Methods
+     */
     public int getX() {
         return x;
     }
@@ -52,10 +56,6 @@ public class Player extends JPanel {
 
     public void setVelocityX(int velocityX) {
         this.velocityX = velocityX;
-    }
-
-    public int getVelocityY() {
-        return velocityY;
     }
 
     public void setVelocityY(int velocityY) {
