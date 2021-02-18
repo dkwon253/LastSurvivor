@@ -5,7 +5,6 @@ import java.awt.*;
 
 public class InfectedPlayer {
     private Image image;
-    public Game game;
     private int x;
     private int y;
     private int velocityX = 2;

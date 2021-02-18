@@ -14,12 +14,12 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private final Player player;
     private final InfectedPlayer enemy;
     private final Finish exitDoor;
-    private Counter countLevel = new Counter();
-    private ArrayList<InfectedPlayer> enemies = new ArrayList<>();
-    private Random rand = new Random();
-    private int enemyCount = 1;
+    private final Counter countLevel = new Counter();
+    private final Random rand = new Random();
     private Container container;
-    private Game game;
+    private final Game game;
+    private int enemyCount = 1;
+    private ArrayList<InfectedPlayer> enemies = new ArrayList<>();
 
     public Board(Game game) {
         this.game = game;
@@ -59,11 +59,11 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         checkEnemyCollision();
     }
 
-    public void deployEnemies(Graphics2D g2){
-        enemies.forEach(e->e.paint(g2));
+    public void deployEnemies(Graphics2D g2) {
+        enemies.forEach(e -> e.paint(g2));
     }
 
-    public void setAndUpdateStage(Graphics2D g2){
+    public void setAndUpdateStage(Graphics2D g2) {
         exitDoor.paint(g2);
         player.paint(g2);
         countLevel.draw(g2);
