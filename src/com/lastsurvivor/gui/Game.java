@@ -25,6 +25,7 @@ public class Game implements ActionListener {
         instantiate();
         frame.pack();
         frame.setVisible(true);
+        frame.setResizable(false);
     }
 
     /**
